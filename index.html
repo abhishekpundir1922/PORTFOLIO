@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Abhishek Pundir | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #bb86fc;
+      --secondary-color: #3700b3;
+      --bg-color: #121212;
+      --card-bg: #1e1e1e;
+      --text-color: #e0e0e0;
+      --accent-color: #03dac5;
+      --hover-bg: rgba(255, 255, 255, 0.05);
+      --gradient-bg: linear-gradient(135deg, #7b1fa2, #512da8);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--text-color);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      transition: background 0.5s, color 0.5s;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: auto;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    .title-block {
+      grid-column: span 2;
+      text-align: center;
+      background: var(--gradient-bg);
+      padding: 40px;
+      border-radius: 15px;
+      color: white;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      animation: fadeInDown 1s ease-out;
+    }
+
+    .title-block h1 {
+      font-size: 5rem;
+      text-transform: uppercase;
+    }
+
+    .intro {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      animation: fadeInUp 1.2s ease-out;
+    }
+
+    .intro h2 {
+      font-size: 2.6rem;
+      margin-bottom: 20px;
+      color: var(--primary-color);
+    }
+
+    .intro p {
+      font-size: 1.2rem;
+    }
+
+    .block {
+      background: var(--card-bg);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, background 0.3s;
+      animation: fadeIn 1s ease;
+    }
+
+    .block:hover {
+      transform: translateY(-10px);
+      background: var(--hover-bg);
+    }
+
+    .block h3 {
+      color: var(--accent-color);
+      margin-bottom: 10px;
+      font-size: 2rem;
+    }
+
+    .shapes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .shapes span {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.1;
+    }
+
+    .shape1 {
+      width: 180px;
+      height: 180px;
+      background: var(--accent-color);
+      top: 5%;
+      left: 5%;
+    }
+
+    .shape2 {
+      width: 120px;
+      height: 120px;
+      background: var(--primary-color);
+      bottom: 10%;
+      right: 5%;
+    }
+
+    footer {
+      background: var(--secondary-color);
+      color: white;
+      text-align: center;
+      padding: 30px;
+      margin-top: 40px;
+    }
+
+    footer p {
+      font-size: 1.2rem;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--accent-color);
+      color: black;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      z-index: 10;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      .title-block h1 {
+        font-size: 3.5rem;
+      }
+
+      .intro h2 {
+        font-size: 2.2rem;
+      }
+
+      .block h3 {
+        font-size: 1.8rem;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+
+  <div class="shapes">
+    <span class="shape1"></span>
+    <span class="shape2"></span>
+  </div>
+
+  <section class="container">
+    <div class="title-block">
+      <h1>PORT<br>FOLIO</h1>
+    </div>
+
+    <div class="intro">
+      <h2 id="typing-text">Hi, I'm Abhishek</h2>
+      <p>I’m a passionate engineering student who enjoys coding, solving real-world problems, and expressing creativity through sketching and design. I am driven by a desire to create impactful solutions and continuously improve my skills.</p>
+    </div>
+
+    <div class="block">
+      <h3>Latest Project</h3>
+      <p>A command-line calculator in C that performs arithmetic operations with a neat interface. It was created as a personal project to practice problem-solving skills in C programming.</p>
+    </div>
+
+    <div class="block">
+      <h3>Skill Expertise</h3>
+      <p>C Programming, Python, HTML/CSS, Problem Solving, JavaScript, Responsive Design, UX/UI Design, Visual Creativity</p>
+    </div>
+
+    <div class="block">
+      <h3>Working Experience</h3>
+      <p>Currently pursuing B.Tech in Computer Science</p>
+    </div>
+
+    <div class="block">
+      <h3>Contact</h3>
+      <p>Email: <a href="mailto:pundirabhishek2005@gmail.com">pundirabhishek2005@gmail.com</a></p>
+      <p>Phone: +91-8287168182</p>
+    </div>
+
+    <div class="block">
+      <h3>Hobbies</h3>
+      <p>Sketching, drawing, digital art, gaming, and following emerging technologies.</p>
+    </div>
+
+    <div class="block">
+      <h3>Education</h3>
+      <p>B.Tech in Computer Science Engineering with specialization in Information Technology from Dronacharya College of Engineering.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Abhishek Pundir. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const root = document.documentElement;
+      const isDark = root.style.getPropertyValue('--bg-color') === '#ffffff';
+      root.style.setProperty('--bg-color', isDark ? '#121212' : '#ffffff');
+      root.style.setProperty('--text-color', isDark ? '#e0e0e0' : '#222');
+      root.style.setProperty('--card-bg', isDark ? '#1e1e1e' : '#f9f9f9');
+    }
+
+    const typingTarget = document.getElementById('typing-text');
+    const originalText = "Hi, I'm Kaushal";
+    let index = 0;
+
+    function typeEffect() {
+      if (index <= originalText.length) {
+        typingTarget.innerText = originalText.slice(0, index++);
+        setTimeout(typeEffect, 80);
+      }
+    }
+
+    window.onload = () => {
+      typingTarget.innerText = "";
+      typeEffect();
+    };
+  </script>
+</body>
+</html>
